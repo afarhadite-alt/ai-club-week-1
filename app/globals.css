@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 150 22% 97%;
+  --foreground: 153 25% 13%;
+  --card: 0 0% 100%;
+  --card-foreground: 153 25% 13%;
+  --primary: 153 40% 22%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 148 24% 92%;
+  --secondary-foreground: 153 33% 24%;
+  --muted: 150 18% 94%;
+  --muted-foreground: 155 9% 43%;
+  --accent: 73 77% 81%;
+  --accent-foreground: 153 25% 13%;
+  --border: 150 13% 88%;
+  --ring: 153 40% 22%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  min-height: 100%;
+  background: hsl(var(--background));
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #d8edaa;
+  color: #183c2c;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+.flashcard-scene {
+  perspective: 1200px;
+}
+
+.flashcard-inner {
+  transform-style: preserve-3d;
+  transition: transform 400ms ease;
+}
+
+.flashcard-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flashcard-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
